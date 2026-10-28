@@ -10,6 +10,10 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-        return view('books.index', compact('books'));
+        return response()->json([
+            'success' => true,
+            'message' => 'Daftar Data Buku',
+            'data' => $books
+        ], 200);
     }
 }
